@@ -14,7 +14,7 @@ jobs:
       matrix:
         include:
           - dockerfile: ./php-fpm/Dockerfile
-            image: ghcr.io/ikermenka1/phpfpm
+            image: ghcr.io/beknazar007/phpfpm
           # - dockerfile: ./src/Dockerfile-dril4net-distribution
           #   image: ghcr.io/ikermenka1/phpfpm
     permissions:
@@ -67,14 +67,5 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-      - name: Delete images
-        uses: smartsquaregmbh/delete-old-packages@v0.5.0
-        with: 
-          token: ${{ secrets.TOKEN }}
-          user: ikermenka1
-          type: container
-          keep: 3
-          names: |
-            phpfpm
 
    
