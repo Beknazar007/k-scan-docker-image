@@ -55,8 +55,8 @@ jobs:
         uses: anchore/scan-action@v3
         with:
           image: ${{ steps.meta.outputs.tags }}
-          fail-build: false
-          severity-cutoff: critical
+          fail-build: true
+          severity-cutoff: medium
 
       - name: Push images
         uses: docker/build-push-action@v3
